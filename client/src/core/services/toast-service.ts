@@ -13,10 +13,6 @@ export class ToastService {
       const container = document.createElement('div');
       container.id = 'toast-container';
       container.className = 'toast toast-bottom toast-end';
-      // container.style.position = 'fixed';
-      // container.style.top = '1rem';
-      // container.style.right = '1rem';
-      // container.style.zIndex = '9999';
       document.body.appendChild(container);
     }
   }
@@ -33,7 +29,6 @@ export class ToastService {
     `;
 
     toast.querySelector('button')?.addEventListener('click', () => {
-      // toastContainer.removeChild(toast);
       toast.remove();
     });
     toastContainer.appendChild(toast);
