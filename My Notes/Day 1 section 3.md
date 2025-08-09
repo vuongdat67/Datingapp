@@ -1,3 +1,6 @@
+#links #learn
+[[Day 1 section 2]]
+# The next section
 ## Learning targets:
 #dotnet
 - [x] Using the dotnet CLI
@@ -36,8 +39,8 @@ ng serve
 
 ---
 
-go to 'linked' in setting(ctrl + ,) and turn on.
-go to 'brackets' in setting, and change mode auto save ( Auto Closing Brackets)
+*go to 'linked' in setting(ctrl + ,) and turn on.*
+*go to 'brackets' in setting, and change mode auto save ( Auto Closing Brackets)*
 
 ---
 *adding HTTP in this path D:\Code\.Net\Code\DatingApp\client\src\app\app.config.ts*
@@ -214,7 +217,7 @@ export class App implements OnInit {
   }
 }
 ```
-
+#tailwind #ts
 [Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.](https://tailwindcss.com/)
 [daisyUI — Tailwind CSS Components ( version 5 update is here )](https://daisyui.com/)
 
@@ -227,7 +230,7 @@ go to setting --> CSS › Lint: Unknown At Rules
 
 [FiloSottile/mkcert: A simple zero-config tool to make locally trusted development certificates with any names you'd like.](https://github.com/FiloSottile/mkcert)
 --> HTTPS
-
+#mkcert
 Powershell Admin:
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; `
@@ -237,23 +240,23 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 
 ```
 
-```powershell
+```cs
 choco
 ```
 
-```
+```cs
 choco install mkcert -y
 ```
 
-```
+```cs
 mkcert -install
 ```
 
-```
+```cs
 mkcert -version
 ```
 
-```
+```cs
 cd .\client\
 mkdir ssl
 cd ssl
@@ -263,12 +266,8 @@ mkcert localhost
 angular.json add serve:
 ```json
 "options": {
-
             "ssl":true,
-
             "sslCert": "./ssl/localhost.pem",
-
             "sslKey": "./ssl/localhost-key.pem"
-
           },
 ```

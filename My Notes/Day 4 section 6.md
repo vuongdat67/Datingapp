@@ -1,3 +1,4 @@
+#learn #links #Note
 # Angular routing
 Implement routing in Angular app and have an understanding of:
 - [x] Angular routing
@@ -8,6 +9,7 @@ Implement routing in Angular app and have an understanding of:
 
 ---
 --> Create members, lists and member-detailed
+#Angular
 ``` js 
 ng g c features/members/member-list --dry-run
 ng g c features/members/member-list
@@ -31,7 +33,7 @@ ng g c features/lists
 ```ts
 [ngClass]="{'container mx-auto': !(router.url === '/')}">
 ```
-but also different ways:
+but also different ways: #css #ts
 ```ts
 [class.mt-24]="!(router.url === '/')"
 
@@ -69,39 +71,24 @@ but also different ways:
 ```ts
 private router = inject(Router);
 login() {
-
     this.accountService.login(this.creds).subscribe({
-
       next: result => {
-
         this.router.navigateByUrl('/members');
-
         console.log('Login successful', result);
-
         this.creds = {}; // Clear credentials after successful login
-
       },
-
       error: error => alert('Login failed: ' + error.message)
-
     });
-
   }
-
-  
-
   logout() {
-
     this.accountService.logout();
-
     this.router.navigateByUrl('/');
-
     console.log('Logout successful');
-
   }
 ```
 
 ---
+#daisyui
 ### Toaster
 ```ts
 ngx toastr
@@ -115,7 +102,7 @@ ngx toastr
 ```cs
 ng g s toast-service --dry-run
 ```
-
+#js #ts
 ```ts
 import { Injectable } from '@angular/core';
 
@@ -180,7 +167,7 @@ export class ToastService {
 
 ---
 
-*Route Guard*
+### *Route Guard*
 ```ts
 ng g g auth --dry-run
 ✔ Which type of guard would you like to create? CanActivate
@@ -188,7 +175,7 @@ ng g g auth --dry-run
 
 ---
 
-*Setting compact* : Ctrl + , --> compact --> unable
+### *Setting compact* : Ctrl + , --> compact --> unable
 
 
 ```ts
@@ -212,7 +199,7 @@ export const authGuard: CanActivateFn = () => {
 
 ---
 
-**Adding duming route**
+### **Adding duming route**
 ```ts
 @if (accountService.currentUser()) {
 	<a class="hover:text-amber-300" routerLink="/members" routerLinkActive="text-accent">Matches</a>
@@ -234,3 +221,7 @@ ng g s init-service
      const user = JSON.parse(userString);
      this.accountService.currentUser.set(user);
 ```
+
+---
+
+END

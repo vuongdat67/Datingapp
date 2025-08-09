@@ -1,3 +1,4 @@
+#learn #links
 # Client login and register
 ## Learning goals
 - [x] Creating components using the Angular CLI
@@ -10,61 +11,56 @@
 
 ---
 
-folder:
+**folder:**
 - layout: navbar,...
 - features: members related components, messages, accounts,...
 - core: angular services
 - shared: shared components
-LIFT principle:
+**LIFT principle:**
 - Locate
 - Identify
 - Flat
 - Try to be Dry
-
-```
+#Angular
+```cs
 ng generate
 OR
 ng g --help
 ng c --help
 ```
 
-```
+```cs
 ng g c nav --dry-run
 ```
 
-```
+```cs
 ng g c layout/nav --dry-run
 ```
 
-```
+```cs
 ng g c layout/nav --skip-tests --dry-run
 ```
 
 *Changes angular.json:*
 ```json
 "schematics": {
-
         "@schematics/angular:component": {
-
           "skipTests": true,
-
           "path": "src"
-
         }
-
       },
 ```
 
-```
+```cs
 ng g c layout/nav --dry-run
 ```
 
-```
+```cs
 ng g c layout/nav 
 ```
 
 ---
-
+#css #flexbox #Note
 [Flexbox Froggy - A game for learning  flexbox](https://flexboxfroggy.com/)
 # Justify-content là gì?
 Dùng để căn chỉnh các phần tử con bên trong container theo trục chính (main axis).
@@ -124,19 +120,19 @@ justify-content: space-evenly;
 
 ---
 Level 1:
-```
+```css
 justify-content: flex-end;
 ```
 Level 2:
-```
+```css
 justify-content: center;
 ```
 Level 3:
-```
+```css
 justify-content: space-around;
 ```
 Level 4:
-```
+```css
 justify-content: space-between;
 ```
 ---
@@ -191,16 +187,16 @@ Căn dưới:
 
 ---
 Level 5:
-```
+```css
 align-items: flex-end;
 ```
 Level 6:
-```
+```css
 justify-content: center;
 align-items: center;
 ```
 Level 7:
-```
+```css
 justify-content: space-around;
 align-items: flex-end;
 ```
@@ -245,30 +241,30 @@ Giả sử có HTML:
 - `column-reverse` = sắp từ dưới lên
 ---
 Level 8:
-```
+```css
 flex-direction: row-reverse;
 ```
 Level 9:
-```
+```css
 flex-direction: column;
 ```
 Level 10:
-```
+```css
 justify-content: flex-end;
 flex-direction: row-reverse;
 ```
 Level 11:
-```
+```css
 flex-direction: column;
 justify-content: flex-end;
 ```
 Level 12:
-```
+```css
 flex-direction: column-reverse;
 justify-content: space-between;
 ```
 Level 13:
-```
+```css
 flex-direction: row-reverse;
 justify-content: center;
 align-items: flex-end;
@@ -302,11 +298,11 @@ Bạn sẽ thấy 3 con ếch, ví dụ:
 
 ---
 Level 14:
-```
+```css
 order: 2;
 ```
 Level 15:
-```
+```css
 order:-3
 ```
 ---
@@ -339,11 +335,11 @@ Các con khác vẫn giữ theo `align-items: center;` (hoặc mặc định).
 
 ---
 Level 16:
-```
+```css
 align-self: flex-end;
 ```
 Level 17:
-```
+```css
 order: 1;
 align-self: flex-end;
 ```
@@ -374,11 +370,11 @@ Giả sử có 6 con ếch, mà `flex-wrap: nowrap` thì **tất cả sẽ nằm
 
 ---
 Level 18:
-```
+```css
 flex-wrap: wrap;
 ```
 Level 19:
-```
+```css
 flex-wrap: wrap;
 flex-direction: column;
 ```
@@ -426,7 +422,7 @@ Tương tự, nếu đề bài yêu cầu:
 ---
 
 Level 20:
-```
+```css
 flex-wrap: wrap;
 flex-direction: column-reverse;
 ```
@@ -475,20 +471,20 @@ Giả sử có 3 dòng ếch, mỗi dòng có 3 con 🐸🐸🐸:
 ---
 
 Level 21:
-```
+```css
 align-content: flex-start;
 ```
 Level 22:
-```
+```css
 align-content: flex-end;
 ```
 Level 23:
-```
+```css
 flex-direction: column-reverse;
 align-content: center;
 ```
 Level 24:
-```
+```css
 flex-direction: column-reverse;
 flex-wrap: wrap-reverse;
 justify-content: center;
@@ -571,11 +567,11 @@ align-content: space-between;
 
 ---
 
-```
+```c
 ng g --help
 ```
 
-```
+```c
 ng g s account-service --dry-run
 ```
 
@@ -594,7 +590,7 @@ Angular.json:
 
 ```
 
-```
+```c
 ng g s account-service --dry-run
 
 ng g s account-service
@@ -672,9 +668,9 @@ Sử dụng:
 --> Làm việc với Angular + HttpClient → **nên dùng Observable** là mặc định, vì đó là cách Angular hoạt động theo reactive programming.
 
 ---
-
-![[Drawing 2025-08-01 19.16.59.excalidraw]]
-
+#excalidraw
+![[Pasted image 20250808164134.png]]
+#Angular #ts
 #### Subcribe
 ```cs
 getMembers(){
@@ -721,14 +717,16 @@ count.update(value=>value+2)
 ---
 
 Angular commands:
-```
+```cs
 ng g c features/home --dry-run
 ng g c features/home 
 ng g c features/account/register
 ```
 ---
-Summary:
+**Summary:**
 - Use of local storage to persitst token --> XSS weakness
 - Length of token expiration
 - Password salt in Database --> ASP.Net Identity
 
+---
+END

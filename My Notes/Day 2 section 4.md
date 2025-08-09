@@ -1,4 +1,7 @@
-# Learning Goals
+#learn #links
+[[Day 1 section 3]]
+# The next section
+## Learning Goals
 - [x] How to store passwords in the database
 - [x] Using inheritance in C# - DRY
 - [x] Using the C# debugger
@@ -17,11 +20,11 @@
 
 ---
 
-APS.NET Identity
+**APS.NET Identity**
 
 ---
 
-```
+```cs
 dotnet ef migrations add UserEntityUpdated
 
 dotnet ef database update
@@ -44,7 +47,7 @@ namespace API.Controllers
 }
 ```
 
-remove controller parent and replate BaseApiController:
+**remove controller parent and replate BaseApiController:**
 ```cs
 [Route("api/[controller]")] // localhost:5001/api/members
     [ApiController]
@@ -80,7 +83,7 @@ public class AccountController(AppDbContext context) : BaseApiController
 ```js
 {{url}}/api/account/register?email=sam@test.com&password=password&displayName=Sam
 ```
-DTO - Data transfer objects
+**DTO - Data transfer objects**
 ```cs
 public class AccountController(AppDbContext context) : BaseApiController
 {
@@ -105,24 +108,24 @@ public class AccountController(AppDbContext context) : BaseApiController
 
 ```
 
- --> Test API
+ --> **Test API**
 ```js
 {{url}}/api/account/register
 ```
 
 ---
 
-```
+```cs
 using System.ComponentModel.DataAnnotations;
 ```
 ---
 
 *drop database:*
-```
+```cs
 dotnet ef database drop
 ```
 
-```
+```cs
 dotnet ef database update
 ```
 
@@ -159,7 +162,7 @@ dotnet ef database update
 
 - Những cách comment thì không an toàn bởi timing attack
 ---
-
+#authentication
 ## JWT - Token authentication
 single request --> industry standard for token:
 - credentials
@@ -170,9 +173,9 @@ single request --> industry standard for token:
 --> Json web token
 
 MFF, expired token
-
+#excalidraw
 send username
-![[Drawing 2025-07-31 11.14.04.excalidraw]]
+![[Pasted image 20250808163623.png]]
 
 No seesion to manage - JWT are self contained tokens
 Portable - a single token can be used with multiple backends
@@ -181,15 +184,13 @@ Performance - Once a token is ussed, there is no need to make a database request
 
 ---
 
-Using ITokenService and TokenService have the suggested fix 
+**Using ITokenService and TokenService have the suggested fix** 
 - Show code actions 
 - ctrl + .
 ---
-Adding Service in Program.cs
-
-AddSingleton: starting and running service, login, a token
-
-AddTransient: new version of service, short, compare to AddScoped
+*Adding Service in Program.cs*
+*AddSingleton: starting and running service, login, a token*
+*AddTransient: new version of service, short, compare to AddScoped*
 
 
 ---
@@ -213,7 +214,7 @@ Lớp `TokenService` có nhiệm vụ:
     
 
 ---
-
+#Note
 ## 📦 Giải thích chi tiết
 
 `public class TokenService(IConfiguration configuration) : ITokenService`
@@ -318,3 +319,10 @@ Adding Authorize in MemberController.cs
 ```nuget
 Microsoft.AspNetCore.Authentication.JwtBearer @Microsoft
 ```
+
+
+
+---
+
+End
+

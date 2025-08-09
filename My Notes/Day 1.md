@@ -1,6 +1,4 @@
-[[Day 1]]
-#learn #links
-# The next section
+#dotnet #Angular #daisyui #ts #tailwind #learn
 ## Skeleton
 a tiny implementation of system that performs a small end to end function --> Final architecture, linking together the main architectural components --> evolve in parallel
 
@@ -37,7 +35,7 @@ dotnet new list
 dotnet new webapi -h
 ```
 
-#Note: *using the controller* 
+#Note: using the controller 
 ```cs
 dotnet new list
 ```
@@ -49,7 +47,7 @@ dotnet new sln
 ```cs
 dotnet new webapi -controllers -n API
 ```
-*-n: name*
+-n: name
 ```cs
 dotnet sln -h
 ```
@@ -67,11 +65,11 @@ dotnet sln list
 *go to extentions store --> download C# dev kit, C#, .NET Install Tool, NuGet Gallery, material icons*
 
 #start
-```cs
+```
 cd API && dotnet run
 ```
 
-```cs
+```
 dotnet run --launch-profile https
 ```
 
@@ -98,12 +96,12 @@ such as:
 }
 ```
 
-**Go to file to see the route, end-point, httpget:**
-```
+**Go to file to see the route, end-point, httpget:
+```cs
 D:\Code\.Net\Code\DatingApp\API\Controllers\WeatherForecastController.cs
 ```
-*And this file has the site to check API work correctly*
-```
+And this file has the site to check API work correctly
+```cs
 D:\Code\.Net\Code\DatingApp\API\API.http
 ```
 
@@ -148,26 +146,27 @@ Don't enter any sensitive information on this site (for example, passwords or cr
 
 You have chosen to turn off security warnings for this site. [Turn on warnings](edge://page-info/#)
 ```
+#dotnet
 ## dotnet dev-certs commands:
 --help
-```cs
+```
 dotnet dev-certs https -h
 ```
 --check
-```cs
+```
 dotnet dev-certs https -c
 ```
 --trust
-```cs
+```
 dotnet dev-certs https -t
 ```
 --clean
-```cs
+```
 dotnet dev-certs https --clean
 ```
 
 if it doesn't work, you would try to restart the browser or:
-```cs
+```
 dotnet dev-certs https --clean 
 dotnet dev-certs https --trust
 ```
@@ -179,36 +178,46 @@ dotnet dev-certs https --trust
 ```
 This help us auto define global to reduce the source code, so we can delete using system on classes where have them.*
 
-**typing prop and 'tab' in class to have template**
+typing prop and 'tab' in class to have template
 #Note
 *Compare*
-## Tổng hợp 6 cách khai báo thuộc tính Id:
-**1. `public string? Id { get; set; }`**
+## **Tổng hợp 6 cách khai báo thuộc tính Id:**
+### **1. `public string? Id { get; set; }`**
+
 - **Nullable**: Cho phép `null`
 - **Default**: `null`
 - **Use case**: Khi cần phân biệt "chưa có" vs "rỗng"
-**2. `public string Id { get; set; } = string.Empty;`**
+
+### **2. `public string Id { get; set; } = string.Empty;`**
+
 - **Non-nullable**: Không cho phép `null`
 - **Default**: `""`
 - **Use case**: Đảm bảo luôn có string, tránh null exception
-**3. `public required string Id { get; set; }`**
+
+### **3. `public required string Id { get; set; }`**
+
 - **Mandatory**: Bắt buộc khởi tạo (C# 11+)
 - **Compile-time**: Compiler check
 - **Use case**: Khi Id là required field
-**4. `public string Id { get; set; } = Guid.NewGuid().ToString();`**
+
+### **4. `public string Id { get; set; } = Guid.NewGuid().ToString();`**
+
 - **Auto-generated**: Tự động tạo unique ID
 - **Performance cost**: Tạo GUID mỗi object
 - **Use case**: Cần unique identifier
-**5. `public string Id { get; set; } = "";`**
+
+### **5. `public string Id { get; set; } = "";`**
+
 - **Empty string**: Giống string.Empty
 - **Literal**: Hard-coded empty
 - **Use case**: Tương đương option 2
-**6. `public string Id { get; set; } = Empty.ToString();`** ❌
+
+### **6. `public string Id { get; set; } = Empty.ToString();`** ❌
 
 - **Lỗi cú pháp**: `Empty` không tồn tại
 - **Không sử dụng được**
 
- **So sánh toàn diện:**
+## **So sánh toàn diện:**
 
 | Tiêu chí            | 1 (`string?`)  | 2 (`string.Empty`) | 3 (`required`) | 4 (`Guid`)     | 5 (`""`)      |
 | ------------------- | -------------- | ------------------ | -------------- | -------------- | ------------- |
@@ -218,32 +227,33 @@ This help us auto define global to reduce the source code, so we can delete usin
 | **Security**        | ❌ Runtime risk | ✅ An toàn          | ✅ An toàn      | ✅ Unique       | ✅ An toàn     |
 | **Maintainability** | ❌ Phức tạp     | ✅ Đơn giản         | ✅ Rõ ràng      | ✅ Tự động      | ✅ Đơn giản    |
 
-**🎯 Khuyến nghị chọn:**
+## **🎯 Khuyến nghị chọn:**
 
-**Cho Entity/Domain Model:**
+### **Cho Entity/Domain Model:**
 ```csharp
 public required string Id { get; set; }  // Option #3
 ```
 **Lý do**: Bắt buộc khởi tạo, compile-time safety
-**Cho DTO/API Model:**
+### **Cho DTO/API Model:**
 ```csharp
 public string Id { get; set; } = string.Empty;  // Option #2
 ```
 **Lý do**: An toàn, không cần validation phức tạp
-**Cho Auto-generated ID:**
+### **Cho Auto-generated ID:**
 ```csharp
 public string Id { get; set; } = Guid.NewGuid().ToString();  // Option #4
 ```
 **Lý do**: Unique, phù hợp cho primary key
- **❌ Tránh:**
+### **❌ Tránh:**
 - Option #1: Dễ gây NullReferenceException
 - Option #6: Lỗi cú pháp
 **Kết luận**: Chọn **Option 3** (required) cho hầu hết trường hợp - an toàn nhất và rõ ràng nhất.
 
 ---
 An Object Relational Mapper (ORM)
+#excalidraw
 Translate code into SQL commands that update the table in database -CRUD
-![[Pasted image 20250808202200.png]]
+![[Pasted image 20250808163759.png]]
 - Querying
 - Change Tracking
 - Saving
@@ -253,20 +263,19 @@ Translate code into SQL commands that update the table in database -CRUD
 - Built-in conventions
 - Configurations
 - Migrations
-#dotnet
-*Download Nuget:*
-*Microsoft.EntityFrameworkCore.Design @Microsoft*
-*Microsoft.EntityFrameworkCore.Sqlite @Microsoft*
 
-```cs
+Download Nuget:
+Microsoft.EntityFrameworkCore.Design @Microsoft
+Microsoft.EntityFrameworkCore.Sqlite @Microsoft
+
 dotnet restore
-```
-# Folder Data in API
-*using Microsoft.EntityFrameworkCore;*
-*Class AppDbContext : DbContext*
-*typing 'ctor' to have constructor*
 
-**Command to setup dotnet ef:**
+# Folder Data in API
+using Microsoft.EntityFrameworkCore;
+Class AppDbContext : DbContext
+typing 'ctor' to have constructor
+#dotnet
+Command to setup dotnet ef:
 *check:*
 ``` terminal
 dotnet tool list -g
@@ -292,19 +301,22 @@ dotnet ef database update
 
 
 ---
-**Bugs của extension bản mới =))**
+Bugs của extension bản mới =))
 - Bug trong extension `alexcvzz.vscode-sqlite`
 - SQLite 3.41.0+ không support double quotes cho string literals
 - Extension dùng `type="table"` thay vì `type='table'`
 
 **Fix options:**
+
 **1. Manual patch (Windows path):**
 
 ```
 %USERPROFILE%\.vscode\extensions\alexcvzz.vscode-sqlite-*\dist\extension.js
 ```
-**Tìm và thay:**
-*javascript*
+
+Tìm và thay:
+
+javascript
 
 ```javascript
 WHERE (type=\"table\" OR type=\"view\")
@@ -390,9 +402,9 @@ public class MembersController(AppDbContext context) : ControllerBase
 dotnet new gitignore
 ```
 
+---
 
-
-
+END
 
 
 
