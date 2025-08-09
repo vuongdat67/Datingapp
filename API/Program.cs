@@ -1,5 +1,6 @@
 using API.Data;
 using API.interfaces;
+using API.Middleware;
 using API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,7 @@ var app = builder.Build();
 // app.UseHttpsRedirection();
 
 // configure the HTTP request pipeline to use CORS
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors(policy =>
 {
     policy.AllowAnyOrigin()

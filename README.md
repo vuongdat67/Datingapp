@@ -8,5 +8,5 @@
 - .NET9
 - TailwindCSS
 - DaisyUI
-
+- Heroicons
 ---
