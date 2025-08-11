@@ -1,0 +1,12 @@
+/* Ensure dropdown appears above all other elements */
+.dropdown-content {
+  z-index: 9999 !important;
+  position: absolute;
+}
+
+/* Improve dropdown visibility */
+.dropdown:focus-within .dropdown-content,
+.dropdown.dropdown-open .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+}

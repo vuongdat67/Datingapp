@@ -1,3 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui"{
+    themes: all
+}
+
+/* Ensure full height and proper theme background */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply theme background to the entire page */
+html {
+  background-color: hsl(var(--b2));
+  transition: background-color 0.3s ease;
+}
