@@ -16,7 +16,11 @@
   - C# Dev Kit
   - Nuget Gallery
   - SQLite Viewer
+- Cloudinary
+- Azure
 ## For My Study
 ---
+
+
 
 
