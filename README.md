@@ -17,8 +17,10 @@
   - Nuget Gallery
   - SQLite Viewer
 - Cloudinary
+- Azure
 ## For My Study
 ---
+
 
 
 
