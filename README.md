@@ -9,7 +9,14 @@
 - TailwindCSS
 - DaisyUI
 - Heroicons
-- Vscode: .Net Install Tool, Angular Language Service, C#, C# Dev Kit, Nuget Gallery, SQLite Viewer
+- Vscode:
+  - .Net Install Tool
+  - Angular Language Service
+  - C#
+  - C# Dev Kit
+  - Nuget Gallery
+  - SQLite Viewer
 ## For My Study
 ---
+
 
