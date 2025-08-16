@@ -28,10 +28,12 @@ public class MemberRepository(AppDbContext context) : IMembeRepository
     public async Task<IReadOnlyList<Photo>> GetPhotosForMemberAsync(string memberId)
     {
         // return await context.Photos.Where(p => p.MemberId == memberId).ToListAsync();
-        return await context.Members
+        var photos = await context.Members
             .Where(m => m.Id == memberId)
             .SelectMany(m => m.Photos)
             .ToListAsync();
+            
+        return photos ?? new List<Photo>();
     }
 
     public async Task<bool> SaveAllAsync()

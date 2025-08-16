@@ -18,12 +18,23 @@ public class AccountController(AppDbContext context, ITokenService tokenService)
             return BadRequest("Email is already in use");
         }
         var hmac = new HMACSHA512();
+        var userId = Guid.NewGuid().ToString();
         var user = new AppUser
         {
+            Id = userId,
             Email = registerDto.Email,
             DisplayName = registerDto.DisplayName,
             PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(registerDto.Password)),
-            PasswordSalt = hmac.Key
+            PasswordSalt = hmac.Key,
+            Member = new Member
+            {
+                Id = userId,
+                DisplayName = registerDto.DisplayName,
+                Gender = registerDto.Gender,
+                City = registerDto.City,
+                Country = registerDto.Country,
+                DateOfBirth = registerDto.DateOfBirth
+            }
         };
 
         context.Users.Add(user);

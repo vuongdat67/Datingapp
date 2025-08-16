@@ -15,5 +15,8 @@ export type RegisterCredentials = {
     displayName: string;
     email: string;
     password: string;
-    //confirmPassword: string;
+    gender: string;
+    dateOfBirth: string;
+    city: string;
+    country: string;
 }

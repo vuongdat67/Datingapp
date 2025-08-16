@@ -31,12 +31,16 @@ namespace API.Controllers
         [HttpGet("{id}/photos")]
         public async Task<ActionResult<IReadOnlyList<Photo>>> GetMemberPhotos(string id)
         {
-            var photos = await membeRepository.GetPhotosForMemberAsync(id);
-            if (photos == null || photos.Count == 0)
+            // First check if the member exists
+            var member = await membeRepository.GetMemberByIdAsync(id);
+            if (member == null)
             {
-                return NotFound(); // Returns 404 if no photos found
+                return NotFound(); // Returns 404 only if member doesn't exist
             }
-            return Ok(photos); // Returns the member's photos
+            
+            var photos = await membeRepository.GetPhotosForMemberAsync(id);
+            // Return empty array if no photos, not 404
+            return Ok(photos ?? new List<Photo>()); // Returns the member's photos or empty array
         }
         [HttpPut]
         public async Task<ActionResult> UpdateMember(MemberUpdateDto memberUpdateDto)
